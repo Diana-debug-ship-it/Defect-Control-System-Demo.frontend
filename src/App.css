@@ -1,0 +1,219 @@
+/* Общие настройки страницы */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: #f1f5f9; /* Светлый холодный серый */
+  color: #1e293b;
+}
+
+.dashboard {
+  width: 100%;
+  max-width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Шапка: Глубокий темно-синий цвет систем КАМАЗа */
+.dashboard-header {
+  background: #002244; 
+  color: white;
+  padding: 16px 24px;
+  border-radius: 4px;
+  border-bottom: 4px solid #00529b; /* Фирменная полоса */
+  margin-bottom: 24px;
+  
+  /* --- НОВЫЕ СВОЙСТВА ДЛЯ ВЫРАВНИВАНИЯ ЧАСОВ --- */
+  display: flex;
+  justify-content: space-between; /* Текст уйдет влево, часы — вправо */
+  align-items: center;            /* Выровнять их ровно по вертикали */
+}
+
+.header-clock {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff; /* Такой же цвет, как у сабтитла */
+  background: #001a33; /* Чуть более темная прямоугольная подложка */
+  padding: 8px 14px;
+  border-radius: 2px;
+  border: 1px solid #1e293b;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+/* --- СЕКЦИЯ СТАТИСТИКИ (ПАНЕЛЬ KPI) --- */
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  padding: 14px 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  border-left: 4px solid #475569; /* Дефолтный графитовый маркер слева */
+}
+
+/* Промышленные цветовые акценты для карточек статистики */
+.stat-card-passed {
+  border-left-color: #10b981; /* Зеленый маркер */
+}
+
+.stat-card-defect {
+  border-left-color: #ef4444; /* Красный маркер */
+  background-color: #fff5f5;  /* Легкий красный фон при наличии брака */
+}
+
+.stat-card-rate {
+  border-left-color: #f59e0b; /* Оранжевый маркер процента брака */
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Если процент брака растет, выделяем число */
+.stat-card-rate .stat-value {
+  color: #b45309;
+}
+
+/* Состояние ожидания конвейера */
+.no-data {
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border: 1px dashed #cbd5e1;
+  border-radius: 4px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Обертка для таблицы */
+.table-container {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Шапка таблицы — жестко делит пространство */
+.table-header {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr 3fr 2fr; /* Пропорции колонок */
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+/* Контейнер для строк-карточек */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Карточка превратилась в строгую строку таблицы */
+.card {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr 3fr 2fr; /* Точно такие же пропорции, как в шапке */
+  align-items: center;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.card:last-child {
+  border-bottom: none;
+}
+
+/* Цветовые маркеры слева для строк */
+.card-passed {
+  border-left: 4px solid #10b981; /* Зеленый маркер */
+}
+
+.card-defect {
+  border-left: 4px solid #ef4444; /* Красный маркер */
+  background-color: #fff5f5; /* Слегка подсвечиваем всю строку с браком */
+}
+
+/* Стилизация ячеек данных */
+.frame-id strong {
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.frame-time {
+  color: #334155;
+}
+
+/* Результаты анализа */
+.text-passed {
+  color: #059669;
+  font-weight: 600;
+}
+
+.text-defect {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* Выравнивание баджа в правой колонке */
+.status-badge-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Промышленные прямоугольные баджи */
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 150px;
+}
+
+.badge-passed {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-defect {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}

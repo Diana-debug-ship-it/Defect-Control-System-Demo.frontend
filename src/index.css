@@ -1,0 +1,11 @@
+#root {
+  width: 100%; /* Теперь приложение на весь экран */
+  max-width: 100%;
+  margin: 0; /* Убираем авто-отступы */
+  text-align: left; /* Возвращаем нормальное выравнивание текста вместо center */
+  border-inline: none; /* ПОЛНОСТЬЮ УБИРАЕТ ТЕ САМЫЕ ЛИНИИ */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
